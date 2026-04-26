@@ -73,11 +73,26 @@ body {
 </head>
 <body>
 
-<<div class="wrapper">
-    <div class="left">
-        <h1><i class="fa-solid fa-house"></i> Bosh sahifa</h1>
-        <p>Saytga xush kelibsiz</p>
+<div class="wrapper">
+    <div class="center">
+        <p class="anim-text">Saytga xush kelibsiz</p>
     </div>
+</div>
+
+<style>
+.anim-text {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+</style>
 
     <div class="right">
 
