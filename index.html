@@ -3,52 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Qiziqarli sahifa</title>
+<title>Super-IT</title>
 
 <style>
-body {
+    body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: white;
-    text-align: center;
-}
+    color:  #ffffff; 
+    height: 100vh
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+        }
 
 .container {
-    margin-top: 100px;
+     text-align: center; 
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px); 
+}
+    margin-top: 200px;
 }
 
 h1 {
-    font-size: 48px;
+    font-size: 50px;
 }
 
-p {
-    font-size: 20px;
-    opacity: 0.8;
-}
-
-.qr {
-    margin-top: 30px;
-    transition: 0.3s;
-}
-
-.qr:hover {
-    transform: scale(1.1);
-}
-
-button {
-    margin-top: 30px;
-    padding: 15px 30px;
+.btn {
+    margin-top: 1px;
+    padding: 1000px 30px;
     font-size: 18px;
     border: none;
-    border-radius: 10px;
+    border-radius: 1000px;
     background: #00c6ff;
-    color: black;
     cursor: pointer;
 }
 
-button:hover {
-    background: #00a2cc;
+.btn:hover {
+    background: #1f2d35
 }
 </style>
 
@@ -56,55 +51,17 @@ button:hover {
 <body>
 
 <div class="container">
-    <h1>🔥 Maxfiy sahifa</h1>
-    <p>Bu yerda qiziqarli narsa bor...</p>
+    <h1>🚀 Xush kelibsiz</h1>
+    <p>Bu mening zamonaviy web saytim</p>
 
-    <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://t.me/" alt="QR code">
-
-    <br>
-    <button onclick="alert('😎 Yana tez orada yangi funksiyalar qo‘shiladi!')">
-        Bosib ko‘r
-    </button>
+    <button class="btn" onclick="goLogin()">Boshlash</button>
 </div>
+
+<script>
+function goLogin() {
+    window.location.href = "login.html";
+}
+</script>
 
 </body>
 </html>
-<h2>Ro‘yxatdan o‘tish</h2>
-
-<input type="email" id="email" placeholder="Email"><br><br>
-<input type="password" id="password" placeholder="Parol"><br><br>
-
-<button onclick="register()">Ro‘yxatdan o‘tish</button>
-<button onclick="login()">Kirish</button>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-const firebaseConfig = {
-  apiKey: "SENIKI",
-  authDomain: "SENIKI",
-  projectId: "SENIKI",
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-
-window.register = function() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then(() => alert("Ro‘yxatdan o‘tdi ✅"))
-    .catch(err => alert(err.message));
-}
-
-window.login = function() {
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => alert("Kirdi ✅"))
-    .catch(err => alert(err.message));
-}
-</script>
