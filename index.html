@@ -69,3 +69,42 @@ button:hover {
 
 </body>
 </html>
+<h2>Ro‘yxatdan o‘tish</h2>
+
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Parol"><br><br>
+
+<button onclick="register()">Ro‘yxatdan o‘tish</button>
+<button onclick="login()">Kirish</button>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "SENIKI",
+  authDomain: "SENIKI",
+  projectId: "SENIKI",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.register = function() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  createUserWithEmailAndPassword(auth, email, password)
+    .then(() => alert("Ro‘yxatdan o‘tdi ✅"))
+    .catch(err => alert(err.message));
+}
+
+window.login = function() {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then(() => alert("Kirdi ✅"))
+    .catch(err => alert(err.message));
+}
+</script>
