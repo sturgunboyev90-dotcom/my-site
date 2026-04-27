@@ -54,16 +54,6 @@
     color: white;
 }
 
-.hero h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    opacity: 0.8;
-    margin-bottom: 20px;
-}
-
 .btn {
     padding: 10px 20px;
     background: #2d6cdf;
@@ -111,6 +101,17 @@
     border-radius: 6px;
     cursor: pointer;
 }
+
+/* DASHBOARD */
+.dashboard {
+    display: none;
+    height: 100vh;
+    background: #0b1d2a;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 </style>
 </head>
 
@@ -125,7 +126,7 @@
 <!-- HERO -->
 <div class="hero" id="hero">
     <div class="hero-content">
-        <h1>Turg'unboyev Sardorbek Dilshodjon o'g'li</h1>
+        <h1>Turg'unboyev Sardorbek</h1>
         <p>Forma — nafaqat vakolat, balki mas’uliyat</p>
         <button class="btn" onclick="openLogin()">Kirish</button>
     </div>
@@ -141,30 +142,39 @@
     </div>
 </div>
 
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+    <h1>Xush kelibsiz, Sardorbek 👋</h1>
+    <p>Saytga muvaffaqiyatli kirdingiz</p>
+</div>
+
 <script>
+
 /* Loader → Hero */
 setTimeout(() => {
-    document.getElementById("loader").style.display = "none";
-    document.getElementById("hero").style.display = "flex";
+    loader.style.display = "none";
+    hero.style.display = "flex";
 }, 1500);
 
 /* Login ochish */
 function openLogin() {
-    document.getElementById("login").style.display = "flex";
+    login.style.display = "flex";
 }
 
 /* Login tekshirish */
 function enterSite() {
-    let login = document.getElementById("loginInput").value;
-    let password = document.getElementById("passwordInput").value;
+    let loginVal = loginInput.value;
+    let passwordVal = passwordInput.value;
 
-    if (login === "sardorbek" && password === "0226") {
-        alert("Kirish muvaffaqiyatli ✅");
-        document.getElementById("login").style.display = "none";
+    if (loginVal === "sardorbek" && passwordVal === "0226") {
+        login.style.display = "none";
+        hero.style.display = "none";
+        dashboard.style.display = "flex";
     } else {
         alert("Login yoki parol noto‘g‘ri ❌");
     }
 }
+
 </script>
 
 </body>
